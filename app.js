@@ -10,7 +10,7 @@ async function loadPuppies() {
     const res = await fetch(url);
     const text = await res.text();
     const json = JSON.parse(text.substring(47, text.length - 2));
-    const rows = json.table.rows;
+    const rows = json.table.rows.slice(1);
 
     if (rows.length === 0) {
       grid.innerHTML = '<p>No puppies available right now. Check back soon or contact us to join the waitlist!</p>';
